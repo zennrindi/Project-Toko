@@ -2,16 +2,21 @@
 /**
  * 
  */
-class Dashboard extends CI_Controller
+class dashboard extends CI_Controller
 {
 	
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model('barang');
+	}
 	public function index()
 	{
-		$data['dt_produk'] = $this->barang->tampil()->result();
+		$data['produk'] = $this->barang->tampil()->result();
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
-		$this->load->view('templates/footer');
 		$this->load->view('dashboard',$data);
+		$this->load->view('templates/footer');
 	}
 }
-?>
+ ?>
