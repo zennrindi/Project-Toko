@@ -11,7 +11,7 @@
         <div class="sidebar-brand-icon ">
           <i class="fas fa-store"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">ADMIN</div>
+        <div class="sidebar-brand-text mx-3">SELLER</div>
       </a>
 
       <!-- Divider -->
@@ -19,7 +19,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('admin/dashboard_admin') ?>">
+        <a class="nav-link" href="<?php echo base_url('seller/dashboard_seller') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -27,12 +27,12 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/data_barang') ?>">
+        <a class="nav-link" href="<?php echo base_url('seller/data_barang') ?>">
           <i class="fas fa-fw fa-database"></i>
           <span>Data Barang</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/invoice') ?>">
+        <a class="nav-link" href="<?php echo base_url('seller/invoice') ?>">
           <i class="fas fa-fw fa-file-invoice"></i>
           <span>Invoice</span></a>
       </li>

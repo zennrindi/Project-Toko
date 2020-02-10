@@ -14,9 +14,5 @@
     </div> 
   </div>
       <?php endforeach; ?> 
-<div class="ml-3"><br><br>
-  <h5><span class="badge badge-pill badge-danger"><?php echo "SELAIN BUTUH PANGANAN SING AKEH, AYAS YO BUTUH UMAK SAM :)"; ?></span></h5>
-   <h5><span class="badge badge-pill badge-info">NGODING IKU YO KADANG RUWET KADANG ORA, KOYO CINTANE DE'E, KADANG NANG SAMPEAN YO KADANG PISAN NANG AREK LIYAN :)</span></h5> 
-</div>
   </div>
 </div>
