@@ -27,6 +27,10 @@ class dashboard extends CI_Controller
 	{
 		$this->load->view('login');
 	}
+	public function oyi()
+	{
+		
+	}
 	public function regis()
 	{
 		$id_user = $this->input->post('id_user');
@@ -48,5 +52,23 @@ class dashboard extends CI_Controller
 		$this->barang->register($data);
 		redirect('dashboard/login');
 	}
+
+	function seller()
+	{
+		
+		$this->load->view('seller/reseller');
+	}
+	public function data()
+	{
+		$data['produk'] = $this->barang->tampil()->result();
+		$this->load->view('seller/dt_brg',$data);
+	}
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('login/');
+	}
+	
+	
 }
  ?>

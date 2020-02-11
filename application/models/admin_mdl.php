@@ -6,25 +6,17 @@ class Barang extends CI_Model
 {
 	public function tampil()
 	{
-		return $this->db->get('produk');
+		return $this->db->get('admin');
 	}
-	function reg()
- 	{
- 		return $this->db->get('user');
- 	}
- 	function register($data)
- 	{
- 		$this->db->insert('user',$data);
- 	}
-  	function c_login($data)
+	function c_login($data)
  	{
  		$this->db->where($data);
- 		return $this->db->get('user');
+ 		return $this->db->get('admin');
  	}
  	function ck($data_login)
  	{
  		$this->db->where($data_login);
- 		return $this->db->get('user');
+ 		return $this->db->get('admin');
  	}
  	function get_sql_details()
  	{
