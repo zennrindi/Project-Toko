@@ -23,7 +23,8 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-        
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
@@ -35,25 +36,25 @@
                   <?php echo form_open('dashboard/regis'); ?>
                                 <!-- <div> -->
                                     <label>ID</label>
-                                    <input type="show/hidden" name="id_user" class="form-control">
+                                    <input type="hidden" name="id_user" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-12">
+                                <div class="form-group ">
                                     <label>Full Name</label>
                                     <input type="text" name="nama" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group ">
                                     <label>Username</label>
                                     <input type="text" name="username" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group ">
                                     <label>Password</label>
                                     <input type="password" name="pass" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-12">
+                                <div class="form-group ">
                                     <label>Email Address</label>
                                     <input type="text" name="email" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group ">
                                     <label>Level</label>
                                     <select name="level"><option value=""></option>
                                         <option value="1">Seller</option>

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Seller</title>
+  <title>Halaman ADMIN</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon ">
           <i class="fas fa-store"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">TOKO ZENN</div>
+        <div class="sidebar-brand-text mx-3">ADMIN</div>
       </a>
 
       <!-- Divider -->
@@ -55,14 +55,14 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/data')?>">
+        <a class="nav-link" href="<?php echo base_url('admin/data')?>">
           <i class="fas fa-fw fa-table"></i>
-          <span>DATA PRODUK</span></a>
+          <span>DATA SELLER</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/data_jual'); ?>">
+        <a class="nav-link" href="<?php echo base_url('admin/data_cust'); ?>">
           <i class="fas fa-fw fa-table"></i>
-          <span>DATA PENJUALAN</span></a>
+          <span>DATA CUSTOMER</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('dashboard/'); ?>tables.html">
@@ -109,20 +109,6 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="<?php echo base_url('dashboard/'); ?>#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
                     </div>
                   </div>
                 </form>

@@ -3,7 +3,7 @@
       
       <?php foreach ($produk as $key) : ?>
 
-        <div class="card ml-3" style="width: 18rem;">
+        <div class="card mb-3 ml-3" style="width: 18rem;">
     <img src="<?php echo base_url()."/img/" .$key->foto; ?>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><?php echo $key->nm_prd; ?></h5>

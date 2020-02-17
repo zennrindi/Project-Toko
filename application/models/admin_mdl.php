@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Barang extends CI_Model
+class admin_mdl extends CI_Model
 {
 	public function tampil()
 	{
@@ -13,10 +13,17 @@ class Barang extends CI_Model
  		$this->db->where($data);
  		return $this->db->get('admin');
  	}
- 	function ck($data_login)
+ 	function ck()
  	{
- 		$this->db->where($data_login);
- 		return $this->db->get('admin');
+ 		return $this->db->get('seller');
+ 	}
+ 	function oyi()
+ 	{
+ 		return $this->db->get('cust');
+ 	}
+ 	public function cek_username($username)
+ 	{
+ 		return $this->db->get_where('admin',$username);
  	}
  	function get_sql_details()
  	{
