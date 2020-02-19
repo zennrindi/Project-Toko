@@ -128,29 +128,29 @@
   var table;
 
   $(document).ready(function() {
-    $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings){
-      return{
-        "iStart"        : oSettings._iDisplayStart,
-        "iEnd"          : oSettings.fnDisplayEnd(),
-        "iLength"       : oSettings._iDisplayLength,
-        "iTotal"        : oSettings.fnRecordsTotal(),
-        "iFilteredTotal": oSettings.fnRecordsDisplay(),
-        "iPage"         : Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
-        "iTotalPages"   : Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
-      }
-    };
+    // $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings){
+    //   return{
+    //     "iStart"        : oSettings._iDisplayStart,
+    //     "iEnd"          : oSettings.fnDisplayEnd(),
+    //     "iLength"       : oSettings._iDisplayLength,
+    //     "iTotal"        : oSettings.fnRecordsTotal(),
+    //     "iFilteredTotal": oSettings.fnRecordsDisplay(),
+    //     "iPage"         : Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+    //     "iTotalPages"   : Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+    //   }
+    // };
 
     table = $('#table_unit').DataTable({
       "processing" : true,
       "serverSide" : true,
       "searching" : true,
       "pagingType" : 'full_numbers',
-      "dom" :'Bfrtip',
-      "buttons" : [
-      {"extend" : 'excel', "className" : 'btn btn-success btn-flat'},
-      {"extend" : 'pdf', "className" : 'btn btn-danger btn-flat' },
-      {"extend" : 'pageLength', "className" : 'btn btn-default btn-flat'}
-    ],
+    //   "dom" :'Bfrtip',
+    //   "buttons" : [
+    //   {"extend" : 'excel', "className" : 'btn btn-success btn-flat'},
+    //   {"extend" : 'pdf', "className" : 'btn btn-danger btn-flat' },
+    //   {"extend" : 'pageLength', "className" : 'btn btn-default btn-flat'}
+    // ],
     "lengthMenu" : [
     [100, 150, 200, 300, -1],
     ['100 Rows', '150 Rows', '200 Rows', '300 Rows', 'All']
@@ -170,13 +170,13 @@
     }
     });
 
-    table.columns().every(function(){
-      var table = this;
-      $('input', this.header()).on('keyup change', function(){
-        if (table.search() !== this.value){
-          table.search(this.value).draw();
-        }
-      });
+    // table.columns().every(function(){
+    //   var table = this;
+    //   $('input', this.header()).on('keyup change', function(){
+    //     if (table.search() !== this.value){
+    //       table.search(this.value).draw();
+    //     }
+    //   });
 
       $('#tbl_slr').on('click', 'detail_record', function(){
         var id_admin = $(this).data('id_admin');

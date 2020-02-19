@@ -13,7 +13,34 @@ class Admin extends CI_Controller
 	function index()
 	{
 		$this->load->view('admin_templates/login_admin');
-	} 
+	}
+	function ceko()
+	{
+		include 'alert.php';
+		$n = $this->input->post('username');
+		$p = $this->input->post('pass');
+
+		$dta = array('username' => $n, 'pass' => $p);
+		$this->mdl->cek($dta);
+		$cek = $this->admin_mdl->ceko($dta)->num_rows();
+		if ($cek >0) {
+			?>
+			<script type="text/javascript">
+				Swal.fire('Masuk','selamat datang',"success").then(function(){
+					window.location="<?php echo base_url('admin/') ?>"
+				})
+			</script>
+			<?php
+		} else {
+			?>
+			<script type="text/javascript">
+				Swal.fire('Gagal','nama dan password tidak valid,coba lagi',"error").then(function(){
+					window.location="<?php echo base_url('index.php/buka') ?>"
+				})
+			</script>
+			<?php
+		}
+	}
 	function cek()
 	{
 		$username = $this->input->post('username');

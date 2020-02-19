@@ -36,4 +36,5 @@ class admin_mdl extends CI_Model
  	}
 
 }
+
 ?>

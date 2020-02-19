@@ -118,10 +118,10 @@ class dashboard extends CI_Controller
 	public function data()
 	{
 		$data['produk'] = $this->barang->tampil()->result();
-		$this->load->view('seller/header');
-		$this->load->view('seller/sidebar');
+		/*$this->load->view('seller/header');
+		$this->load->view('seller/sidebar');*/
 		$this->load->view('seller/dt_brg',$data);
-		$this->load->view('seller/footer');
+		//$this->load->view('seller/footer');
 	}
 	public function data_jual()
 	{
@@ -136,7 +136,46 @@ class dashboard extends CI_Controller
 		$this->session->sess_destroy();
 		redirect('login/');
 	}
-	
-	
+	public function ssp_seller()
+	{
+		$sql_details = $this->Themodel->get_sql_detail();
+
+		$table = 'produk';
+		$primaryKey = 'id_prd';
+		$colums = array(
+		array( 'db' => 'id_prd', 'dt' => 0 ),
+		array( 'db' => 'nama_prd', 'dt' =>1, 'formatter' => function($d,$row){
+			if ($d == "1") {
+				return "<small class='label bg-green'>AVAIBLE</small>";
+			} elseif ($d == "0") {
+				return "<small class='label bg-red'>NONAVAIBLE</small>";
+			}else{
+				return "<small class='label'>LAIN-LAIN</small>";
+			}
+		}	
+		),
+		array('db' => 'keterangan', 'dt' => 2),
+		array('db' => 'ktg', 'dt' => 3),
+		array('db' => 'harga', 'dt' => 4),
+		array('db' => 'stok', 'dt' => 5),
+		array('db' => 'foto', 'dt' => 6),
+		array('db' => 'id_prd', 'dt' => 7,
+			'formatter' => function($d,$row){
+				return '<a href="javascript:void(0);" class="detail_record btn btn-succes btn-xs btn-flat" title="DETAIL" data-id_prd="'.$d.'"><i class="fa fa-search"></i></a>
+						<a href="javascript:void(0);" class="edit_record btn btn-warning btn-xs btn-flat"
+					title="EDIT" data-id_prd="'.$d.'"><i class="fa fa-edit"></i></a>
+						<a href="javascript:void(0);" class="delete_record btn btn-danger btn-xs btn-flat" title="HAPUS" data-id_prd="'.$d.'"><i class="fa fa-trash"></i></a>';
+			}
+		
+	)
+	);
+
+		require 'assets/vendor/datables/ssp.class.php';
+		echo json_encode(
+			SSP::simple( $_GET, $sql_details,$table, $primaryKey, $colums)
+		);
+	}
 }
+	
+
  ?>
