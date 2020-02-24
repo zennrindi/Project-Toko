@@ -118,10 +118,10 @@ class dashboard extends CI_Controller
 	public function data()
 	{
 		$data['produk'] = $this->barang->tampil()->result();
-		/*$this->load->view('seller/header');
-		$this->load->view('seller/sidebar');*/
+		$this->load->view('seller/header');
+		$this->load->view('seller/sidebar');
 		$this->load->view('seller/dt_brg',$data);
-		//$this->load->view('seller/footer');
+		$this->load->view('seller/footer');
 	}
 	public function data_jual()
 	{
@@ -175,6 +175,8 @@ class dashboard extends CI_Controller
 			SSP::simple( $_GET, $sql_details,$table, $primaryKey, $colums)
 		);
 	}
+
+	
 }
 	
 

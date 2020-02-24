@@ -121,40 +121,6 @@
             </li>
 
            
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a href="<?php echo base_url('dashboard/login') ?>" class="nav-link">
-                <button class="btn btn-warning btn btn-sm ml-3" type="submit">LOGIN</button>
-              </a>
-            </li>
-            <li class="nav-item dropdown no-arrow">
-              <a href="<?php echo base_url('dashboard/register') ?>" class="nav-link">
-                <button class="btn btn-danger btn btn-sm ml-3" type="submit">DAFTAR</button>
-              </a>
-            </li>
-
-
-            
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('dashboard/login'); ?>">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
           </ul>
 
         </nav>

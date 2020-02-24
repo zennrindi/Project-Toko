@@ -1,4 +1,4 @@
-<?php include 'template/header.php'; ?>
+
 	<div class="content-wrapper">
 		<div class="container">
 				<h4><button type="4button" class="btn btn-info" data-toggle="modal" data-target="#tambah"><i class="fa fa-user plus"> Tambah Data Produk</i></button></h4>
@@ -14,15 +14,15 @@
 						<th>Harga <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Stok <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Foto <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Detail <br>	
-							<button class="btn btn-success"><i class="fa fa-search-plus"></i></button></a>
-						</th>
-						<th>Edit <br>
-							<button class="btn btn-warning" data-toggle="modal" data-target="#ubah"><i class="fa fa-edit"></i></button></a>
-						</th>
-						<th>Hapus <br> 
-							<button class="btn btn-warning"><i class="fa fa-trash"></i></button></a>
-						</th>
+						<th>
+              <span class="btn btn-info">DETAIL</span>      
+            </th>
+            <th>
+              <span class="btn btn-warning">UBAH</span>      
+            </th>
+            <th>
+              <span class="btn btn-danger">HAPUS</span>      
+            </th>
 					</tr>
 					</thead>
 					<tbody id="show_data">
@@ -84,7 +84,6 @@
     </div>
   </div>
 </div>
-<?php include 'template/footer.php'; ?>
 <script>
   var save_method;
   var table;
