@@ -10,46 +10,19 @@ class Aksi extends CI_Controller
 		$this->load->model('mdl_aksi');
 	}
 
-	public function elektronik()
+	public function index()
 	{
-		$data['ktg'] = $this->mdl_aksi->kate();
-		$this->load->view('kategori/header');
-		$this->load->view('kategori/sidebar');
-		$this->load->view('kategori/elektronik',$data);
-		$this->load->view('kategori/footer');
+		// $ktg = $this->db->get('ktg');
+		// $this->load->view('');
 	}
-	public function wanita()
+
+	public function katagori()
 	{
-		$data['ktg'] = $this->mdl_aksi->wnt();
-		$this->load->view('kategori/header');
-		$this->load->view('kategori/sidebar');
-		$this->load->view('kategori/pakaian_wanita',$data);
-		$this->load->view('kategori/footer');
+		$kode_ktg = $this->uri->segment(3);
+		$data['produk'] = $this->db->get_where('produk',array('ktg' => $kode_ktg))->result();
+		$data['ktg'] = $this->db->get('ktg')->result();
+		$this->load->view('home',$data);
 	}
-	public function pria()
-	{
-		$data['ktg'] = $this->mdl_aksi->lk();
-		$this->load->view('kategori/header');
-		$this->load->view('kategori/sidebar');
-		$this->load->view('kategori/pakaian_laki',$data);
-		$this->load->view('kategori/footer');
-	}
-	public function anak()
-	{
-		$data['ktg'] = $this->mdl_aksi->ank();
-		$this->load->view('kategori/header');
-		$this->load->view('kategori/sidebar');
-		$this->load->view('kategori/pakaian_anak',$data);
-		$this->load->view('kategori/footer');
-	}
-	public function olga()
-	{
-		$data['ktg'] = $this->mdl_aksi->penjas();
-		$this->load->view('kategori/header');
-		$this->load->view('kategori/sidebar');
-		$this->load->view('kategori/olahraga',$data);
-		$this->load->view('kategori/footer');
-	}
-	
+
 }
 ?>

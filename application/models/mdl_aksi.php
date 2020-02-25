@@ -18,10 +18,10 @@ class Mdl_aksi extends CI_Model
 		//$this->db->where($ktg);
  		return $this->db->get('ktg');
 	}
-	public function lk()
+	public function lk($laki)
 	{
 		//$this->db->where($ktg);
- 		return $this->db->get('ktg');
+ 		return $this->db->get_where('ktg',$laki);
 	}
 	public function ank()
 	{
@@ -32,6 +32,10 @@ class Mdl_aksi extends CI_Model
 	{
 		//$this->db->where($ktg);
  		return $this->db->get('ktg');
+	}
+	public function sepa()
+	{
+		return $this->db->get('ktg');
 	}
 }
 ?>

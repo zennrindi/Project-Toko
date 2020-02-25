@@ -14,11 +14,43 @@
         <div class="sidebar-brand-text mx-3">TOKO ZENN</div>
       </a>
 
-      
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" >
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('dashboard/data')?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>DATA PRODUK</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('dashboard/data_jual'); ?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>DATA PENJUALAN</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('dashboard/'); ?>tables.html">
+          <i class="fas fa-fw fa-comments"></i>
+          <span>KOMENTAR</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Tables -->
+      
 
     </ul>
     <!-- End of Sidebar -->
@@ -75,16 +107,8 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('dashboard/login'); ?>">
+                <a class="dropdown-item" href="<?php echo base_url('dashboard/logout'); ?>">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>

@@ -25,6 +25,16 @@ class Barang extends CI_Model
  		$this->db->where($data_login);
  		return $this->db->get('user');
  	}
+ 	function ubah($id_prd)
+	{
+		$this->db->where('id_prd', $id_prd);
+		return $this->db->get('produk');
+	}
+	function update($data, $id_prd)
+	{
+		$this->db->where('id_prd', $id_prd);
+		$this->db->update('produk', $data);
+	}
  		function simpan_tambah($data, $tabel)
 	{
 		$this->db->insert($tabel, $data);

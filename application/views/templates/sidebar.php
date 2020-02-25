@@ -34,31 +34,14 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/olga') ?>">
-          <i class="fas fa-fw fa-futbol"></i>
-          <span>Olahraga</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/elektronik') ?>">
-          <i class="fas fa-fw fa-tv"></i>
-          <span>Elektronik</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/pria') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Laki-Laki</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/wanita') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Wanita</span></a>
-       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/anak') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Anak-Anak</span></a>
-      </li>
+
+      <?php foreach ($ktg as $key ): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('aksi/katagori/'.$key->kd_ktg) ?>">
+            <i class="fas fa-fw fa-futbol"></i>
+            <span><?php echo $key->nm_ktg ?></span></a>
+        </li>
+      <?php endforeach; ?>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -120,19 +103,26 @@
               </div>
             </li>
 
-           
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a href="<?php echo base_url('dashboard/login') ?>" class="nav-link">
-                <button class="btn btn-warning btn btn-sm ml-3" type="submit">LOGIN</button>
-              </a>
-            </li>
-            <li class="nav-item dropdown no-arrow">
-              <a href="<?php echo base_url('dashboard/register') ?>" class="nav-link">
-                <button class="btn btn-danger btn btn-sm ml-3" type="submit">DAFTAR</button>
-              </a>
-            </li>
+
+            <?php if(isset($_SESSION['level'])){ ?>
+              <li class="nav-item dropdown no-arrow">
+                <?php echo $_SESSION['nama']; ?>
+              </li>
+            <?php }else{ ?>
+              <li class="nav-item dropdown no-arrow">
+                <a href="<?php echo base_url('dashboard/login') ?>" class="nav-link">
+                  <button class="btn btn-warning btn btn-sm ml-3" type="submit">LOGIN</button>
+                </a>
+              </li>
+              <li class="nav-item dropdown no-arrow">
+                <a href="<?php echo base_url('dashboard/register') ?>" class="nav-link">
+                  <button class="btn btn-danger btn btn-sm ml-3" type="submit">DAFTAR</button>
+                </a>
+              </li>
+            <?php } ?>
 
 
             
@@ -148,7 +138,7 @@
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('dashboard/login'); ?>">
+                <a class="dropdown-item" href="<?php echo base_url('dashboard/logout'); ?>">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>

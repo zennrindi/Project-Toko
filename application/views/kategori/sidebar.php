@@ -34,31 +34,14 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/olga') ?>">
-          <i class="fas fa-fw fa-futbol"></i>
-          <span>Olahraga</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/elektronik') ?>">
-          <i class="fas fa-fw fa-tv"></i>
-          <span>Elektronik</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/pria') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Laki-Laki</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/wanita') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Wanita</span></a>
-       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/anak') ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Pakaian Anak-Anak</span></a>
-      </li>
+      <?php foreach ($ktg as $key ) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('aksi/katagori/'.$key->kd_ktg) ?>">
+            <i class="fas fa-fw fa-futbol"></i>
+            <span><?php echo $key->nm_ktg ?></span></a>
+        </li>
+      <?php endforeach; ?>
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

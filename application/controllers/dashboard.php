@@ -13,10 +13,17 @@ class dashboard extends CI_Controller
 	public function index()
 	{
 		$data['produk'] = $this->barang->tampil()->result();
-		$this->load->view('templates/header');
-		$this->load->view('templates/sidebar');
+		$data['ktg'] 	= $this->db->get('ktg')->result();
 		$this->load->view('home',$data);
-		$this->load->view('templates/footer');
+	}
+	public function cust()
+	{
+		$data['produk'] = $this->barang->tampil()->result();
+		$data['ktg'] 	= $this->db->get('ktg')->result();
+		// $this->load->view('kategori/header');
+		// $this->load->view('kategori/sidebar');
+		$this->load->view('home',$data);
+		// $this->load->view('kategori/footer');
 	}
 	public function register()
 	{
@@ -42,7 +49,7 @@ class dashboard extends CI_Controller
 					if ($key['level']=='1') {
 						redirect(base_url('dashboard/seller'));
 					} else {
-						redirect(base_url('dashboard/'));
+						redirect(base_url('dashboard/cust'));
 				} 
 			}else {
 				echo "salah";
@@ -58,10 +65,10 @@ class dashboard extends CI_Controller
 	{	
 		$data['seller'] = $this->admin_mdl->ck()->result();
 
-		$this->load->view('templates/header');
+		//$this->load->view('templates/header');
 		$this->load->view('dt_seller', $data);
-		$this->load->view('templates/sidebar');
-		$this->load->view('templates/footer');
+		//$this->load->view('templates/sidebar');
+		//$this->load->view('templates/footer');
 	}
 	
 	public function regis()
@@ -88,7 +95,7 @@ class dashboard extends CI_Controller
 
 	function seller()
 	{
-		
+
 		$this->load->view('seller/reseller');
 	}
 	public function simpan_tambah()
@@ -115,6 +122,36 @@ class dashboard extends CI_Controller
 		$this->barang->simpan_tambah($data, 'produk');
 		redirect(base_url('dashboard/data'));
 	}
+	public function ubah($id_prd)
+	{
+		$data['produk'] = $this->barang->ubah($id_prd)->result();
+		$this->load->view('seller/header');
+		$this->load->view('edit', $data);
+		$this->load->view('seller/sidebar');
+		$this->load->view('seller/footer');	
+	}
+	public function update($id_prd)
+	{
+		$nm = $this->input->post('nm_prd');
+		$ket = $this->input->post('keterangan');
+		$ktg = $this->input->post('ktg');
+		$harga = $this->input->post('harga');
+		$stok = $this->input->post('stok');
+		$foto = $this->input->post('foto');
+
+		$data = array
+		(
+			'nm_prd' => $nm, 
+			'keterangan' => $ket,
+			'ktg' => $ktg,
+			'harga' => $harga,
+			'stok' => $stok,
+			'foto' => $foto
+		);
+
+		$this->barang->update($data, $id_prd);
+		redirect(base_url('dashboard/data'));
+	}
 	public function data()
 	{
 		$data['produk'] = $this->barang->tampil()->result();
@@ -134,7 +171,8 @@ class dashboard extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('login/');
+		// session_destroy();
+		redirect('/');
 	}
 	public function ssp_seller()
 	{

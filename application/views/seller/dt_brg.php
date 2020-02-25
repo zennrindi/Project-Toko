@@ -7,23 +7,33 @@
 					<table class="table table-striped table-bordered">
 					<thead>
 					<tr>
-						<th>No</th>
+						<th>No <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Nama Produk <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Keterangan <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Kategori <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Harga <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Stok <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Foto <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>
-              <span class="btn btn-info">DETAIL</span>      
-            </th>
-            <th>
-              <span class="btn btn-warning">UBAH</span>      
-            </th>
-            <th>
-              <span class="btn btn-danger">HAPUS</span>      
+						<th colspan="3">AKSI <br> <input type="text" class="form-control input-sm" placeholder="search...">      
             </th>
 					</tr>
+
+          <?php
+          $no=1; 
+          foreach ($produk as $prd) : ?>
+            <tr>
+              <td><?php echo $no++ ?></td>
+              <td><?php echo $prd->nm_prd ?></td>
+              <td><?php echo $prd->keterangan ?></td>
+              <td><?php echo $prd->ktg ?></td>
+              <td><?php echo $prd->harga ?></td>
+              <td><?php echo $prd->stok ?></td>
+              <td><?php echo $prd->foto ?></td>
+              <td><button><div class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></div></button></td>
+              <td><div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></div></td>
+              <td><button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#update"><a href="<?php echo base_url('dashboard/update') ?>"><i class="fas fa-edit"></i></a></button></td>
+            </tr>
+          <?php endforeach; ?>
 					</thead>
 					<tbody id="show_data">
 						
@@ -76,8 +86,8 @@
           <div class="form-group">
            <br>
           <br>
-          <button type="submit" class="btn btn-success">TAMBAH</button>
-          <a href="<?php echo base_url().'dashboard/data' ?>"><button class="btn btn-warning"><i class="fa fa-sign out"> Batal</i></button></a>
+          <button type="submit" class="btn btn-success"><a href="<?php echo base_url().'dashboard/data' ?>">TAMBAH</a></button>
+          <button class="btn btn-warning" type="reset">Batal</button>
           </form>
         </div>
       </div>
