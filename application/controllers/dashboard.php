@@ -130,7 +130,7 @@ class dashboard extends CI_Controller
 		$this->load->view('seller/sidebar');
 		$this->load->view('seller/footer');	
 	}
-	public function update($id_prd)
+	public function update()
 	{
 		$nm = $this->input->post('nm_prd');
 		$ket = $this->input->post('keterangan');

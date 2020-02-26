@@ -23,6 +23,17 @@ class Aksi extends CI_Controller
 		$data['ktg'] = $this->db->get('ktg')->result();
 		$this->load->view('home',$data);
 	}
+	public function det()
+	{
+		$id_prd = $this->uri->segment(3);
+		$prod = $this->db->get_where('produk',array('id_prd' => $id_prd))->row();
+		$data['foto'] = $prod->foto;
+		$data['nm_prd'] = $prod->nm_prd;
+		$data['keterangan'] = $prod->keterangan;
+		$data['harga'] = $prod->harga;
+		$data['ktg'] = $this->db->get('ktg')->result();
+		$this->load->view('detail',$data);
+	}
 
 }
 ?>

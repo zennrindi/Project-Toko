@@ -155,7 +155,7 @@
       });
       $('#tbl_slr').on('click', 'edit_record', function(){
         var id_prd = $(this).data('id_prd');
-        location='<?php echo site_url(); ?>'+id_prd;
+        location='<?php echo site_url('dashboard/ubah'); ?>'+id_prd;
       });
       $('#tbl_slr').on('click', 'delete_record', function(){
         var id_prd = $(this).data('id_prd');

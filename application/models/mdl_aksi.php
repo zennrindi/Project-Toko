@@ -37,5 +37,10 @@ class Mdl_aksi extends CI_Model
 	{
 		return $this->db->get('ktg');
 	}
+
+	public function detil()
+	{
+		return $this->db->get('produk');
+	}
 }
 ?>
