@@ -1,13 +1,15 @@
 
-	<div class="content-wrapper">
+	<div class="content-wrapper " >
 		<div class="container">
 				<h4><button type="4button" class="btn btn-info" data-toggle="modal" data-target="#tambah"><i class="fa fa-user plus"> Tambah Data Produk</i></button></h4>
 				
 				<br>
+        <div class="table-responsive">
 					<table class="table table-striped table-bordered">
 					<thead>
 					<tr>
 						<th>No <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
+            <th>ID <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Nama Produk <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Keterangan <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Kategori <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
@@ -23,22 +25,92 @@
           foreach ($produk as $prd) : ?>
             <tr>
               <td><?php echo $no++ ?></td>
+              <td><?php echo $prd->id_prd ?></td>
               <td><?php echo $prd->nm_prd ?></td>
               <td><?php echo $prd->keterangan ?></td>
               <td><?php echo $prd->ktg ?></td>
               <td><?php echo $prd->harga ?></td>
               <td><?php echo $prd->stok ?></td>
               <td><?php echo $prd->foto ?></td>
-              <td><button><div class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></div></button></td>
-              <td><div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></div></td>
-              <td><button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#update"><a href="<?php echo base_url('dashboard/update') ?>"><i class="fas fa-edit"></i></a></button></td>
+              <td><button class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></button></td>
+              <td><button type="submit" class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#hapus"><i class="fas fa-trash"></i></button></td>
+              <td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#update<?=$prd->id_prd?>"><i class="fas fa-edit"></i></a></button></td>
             </tr>
+
+<div class="modal fade" id="hapus" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Hapus Data</h3>
+      </div>
+      <form method="post" action="<?php echo base_url('dashboard/hapus/'.$prd->id_prd); ?>">
+      <div class="modal-body">
+          <input class="id-hapus" name="id_prd" type="hidden">
+          <p>Anda Yakin Ingin Menghapus Kenangan Data?</p>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button class="btn btn-danger" type="submit">Hapus</button>
+      </div>
+      </form>
+
+<div class="modal fade" id="update<?=$prd->id_prd?>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
+          
+          <form method="post" action="<?php echo base_url('dashboard/update/'.$prd->id_prd); ?>">
+          <div class="form-group">
+            NAMA PRODUK
+            <input type="text" name="nm_prd" class="form-control" placeholder="Nama Produk">
+          </div>
+          <div class="form-group">
+            KETERANGAN
+            <input type="text" name="keterangan" class="form-control" placeholder="Keterangan Produk" value="<?=$prd->keterangan?>">
+          </div>
+          <div class="form-group">
+             KATEGORI
+             <select name="ktg" class="form-control">
+              <option></option>
+              <option value="olahraga" class="form-control">Olahraga</option>
+              <option value="elektronik" class="form-control">Elektronik</option>
+              <option value="pakaian wanita" class="form-control">Pakaian Wanita</option>
+              <option value="pakaian pria" class="form-control">Pakaian Pria</option>
+              <option value="pakaian anak-anak" class="form-control">Pakaian Anak-anak</option>
+            </select>
+          </div>
+          <div class="form-group">
+             HARGA
+             <input type="text" name="harga" class="form-control" placeholder="Harga">
+          </div>
+          <div class="form-group">
+             STOK
+             <input type="text" name="stok" class="form-control" placeholder="stok Produk">
+          </div>
+          <div class="form-group">
+            FOTO
+            <input type="file" name="foto" class="form-control" placeholder="dalam bentuk jpg">
+          </div>
+          <div class="form-group">
+           <br>
+          <br>
+          <button type="submit" class="btn btn-success">Ubah</button>
+          <button class="btn btn-warning" type="reset" data-dismiss="modal">Batal</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
           <?php endforeach; ?>
 					</thead>
 					<tbody id="show_data">
 						
 					</tbody>
 				</table>
+        </div>
 				<div class="modal fade" id="tambah" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -48,9 +120,9 @@
           <h5>Tambah Data</h5>
           
           <form method="post" action="<?php echo base_url().'dashboard/simpan_tambah' ?>">
-          <div class="form-group">
+          <div class="form-group"> 
             ID
-            <input type="text" name="id_prd" class="form-control">
+            <input type="hidden" name="id_prd" class="form-control"></span>
           </div>
           <div class="form-group">
             NAMA PRODUK
@@ -86,7 +158,7 @@
           <div class="form-group">
            <br>
           <br>
-          <button type="submit" class="btn btn-success"><a href="<?php echo base_url().'dashboard/data' ?>">TAMBAH</a></button>
+          <button type="submit" class="btn btn-success">TAMBAH</button>
           <button class="btn btn-warning" type="reset">Batal</button>
           </form>
         </div>

@@ -122,6 +122,14 @@ class dashboard extends CI_Controller
 		$this->barang->simpan_tambah($data, 'produk');
 		redirect(base_url('dashboard/data'));
 	}
+	public function hapus($id)
+	{
+		$id = $this->uri->segment(3);
+		$where = array('id_prd' => $id );
+		$this->barang->hapus('produk', $where);
+		$this->session->set_flashdata('pesan','Berhasil dihapus');
+		redirect('dashboard/data');
+	}
 	public function ubah($id_prd)
 	{
 		$data['produk'] = $this->barang->ubah($id_prd)->result();
@@ -132,6 +140,7 @@ class dashboard extends CI_Controller
 	}
 	public function update()
 	{
+		$id = $this->uri->segment(3);
 		$nm = $this->input->post('nm_prd');
 		$ket = $this->input->post('keterangan');
 		$ktg = $this->input->post('ktg');
@@ -148,8 +157,8 @@ class dashboard extends CI_Controller
 			'stok' => $stok,
 			'foto' => $foto
 		);
-
-		$this->barang->update($data, $id_prd);
+		$where = array('id_prd' => $id );
+		$this->barang->update($data, $where);
 		redirect(base_url('dashboard/data'));
 	}
 	public function data()
@@ -201,7 +210,7 @@ class dashboard extends CI_Controller
 			'formatter' => function($d,$row){
 				return '<a href="javascript:void(0);" class="detail_record btn btn-succes btn-xs btn-flat" title="DETAIL" data-id_prd="'.$d.'"><i class="fa fa-search"></i></a>
 						<a href="javascript:void(0);" class="edit_record btn btn-warning btn-xs btn-flat"
-					title="EDIT" data-id_prd="'.$d.'"><i class="fa fa-edit"></i></a>
+					title="EDIT"  data-toggle="modal" data-target="#update" data-id_prd="'.$d.'"><i class="fa fa-edit"></i></a>
 						<a href="javascript:void(0);" class="delete_record btn btn-danger btn-xs btn-flat" title="HAPUS" data-id_prd="'.$d.'"><i class="fa fa-trash"></i></a>';
 			}
 		

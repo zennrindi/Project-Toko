@@ -22,6 +22,7 @@ include 'templates/sidebar.php';
 					</div>
 				<br>
 				</h2>
+				<h4><div style="text-align: left"><span style="color: black">Deskripsi Produk</span></div></h4>
 				<div style="text-align: left">
 					<span style="font-weight: bold"><?php echo $keterangan; ?></span>
 				</div>
@@ -30,7 +31,7 @@ include 'templates/sidebar.php';
 				<a href="#" class="btn btn-md btn-primary">Masukkan Keranjang
 					<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 				</a>
-				<span class="alert alert-info">Kuantitas
+				<span class="badge badge-warning">Jumlah
 					<input type="number" name="stok" class="input-sm">
 				</span>
 			</div>
