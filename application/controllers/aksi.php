@@ -23,6 +23,16 @@ class Aksi extends CI_Controller
 		$data['ktg'] = $this->db->get('ktg')->result();
 		$this->load->view('home',$data);
 	}
+	public function profile()
+	{
+		$cst = $this->uri->segment(3);
+		$data['cust'] = $this->mdl_aksi->propil()->result();
+		//$this->load->view('templates/header');
+		//$this->load->view('templates/sidebar');
+		$data['ktg'] = $this->db->get('ktg')->result();
+		$this->load->view('profil', $data);
+		//$this->load->view('templates/footer');
+	}
 	public function det()
 	{
 		$id_prd = $this->uri->segment(3);

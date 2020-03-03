@@ -122,6 +122,15 @@ class dashboard extends CI_Controller
 		$this->barang->simpan_tambah($data, 'produk');
 		redirect(base_url('dashboard/data'));
 	}
+	public function details($kd_trx)
+	{
+		$data['order'] = $this->barang->detaill($kd_trx)->result();
+		$this->load->view('templates/header');
+		$this->load->view('seller/sidebar');
+		$this->load->view('seller/details', $data);
+		$this->load->view('templates/footer');	
+	}
+	
 	public function hapus($id)
 	{
 		$id = $this->uri->segment(3);
@@ -129,6 +138,45 @@ class dashboard extends CI_Controller
 		$this->barang->hapus('produk', $where);
 		$this->session->set_flashdata('pesan','Berhasil dihapus');
 		redirect('dashboard/data');
+	}
+	public function batal($kd_trx)
+	{
+		$kd_trx = $this->uri->segment(3);
+		$where = array('kd_trx' => $kd_trx );
+		$this->barang->batal('order', $where);
+		//$this->session->set_flashdata('pesan','Berhasil dihapus');
+		redirect('dashboard/data_jual');
+	}
+	public function ubahh($kd_trx)
+	{
+		$data['order'] = $this->barang->ubahh($kd_trx)->result();
+		$this->load->view('seller/header');
+		$this->load->view('edit', $data);
+		$this->load->view('seller/sidebar');
+		$this->load->view('seller/footer');	
+	}
+	public function updates()
+	{
+		$kd = $this->uri->segment(3);
+		$w = $this->input->post('waktu');
+		$t = $this->input->post('total');
+		$s = $this->input->post('seller');
+		$c = $this->input->post('cust');
+		$k = $this->input->post('kd_pemb');
+		$st = $this->input->post('status');
+
+		$data = array
+		(
+			'waktu' => $w, 
+			'total' => $t,
+			'seller' => $s,
+			'cust' => $c,
+			'kd_pemb' => $k,
+			'status' => $st
+		);
+		$where = array('kd_trx' => $kd );
+		$this->barang->edit($data, $where);
+		redirect(base_url('dashboard/data_jual'));
 	}
 	public function ubah($id_prd)
 	{

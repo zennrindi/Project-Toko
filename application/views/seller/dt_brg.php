@@ -11,11 +11,6 @@
 						<th>No <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
             <th>ID <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th>Nama Produk <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Keterangan <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Kategori <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Harga <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Stok <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
-						<th>Foto <br> <input type="text" class="form-control input-sm" placeholder="search.."></th>
 						<th colspan="3">AKSI <br> <input type="text" class="form-control input-sm" placeholder="search...">      
             </th>
 					</tr>
@@ -27,17 +22,36 @@
               <td><?php echo $no++ ?></td>
               <td><?php echo $prd->id_prd ?></td>
               <td><?php echo $prd->nm_prd ?></td>
-              <td><?php echo $prd->keterangan ?></td>
-              <td><?php echo $prd->ktg ?></td>
-              <td><?php echo $prd->harga ?></td>
-              <td><?php echo $prd->stok ?></td>
-              <td><?php echo $prd->foto ?></td>
-              <td><button class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></button></td>
-              <td><button type="submit" class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#hapus"><i class="fas fa-trash"></i></button></td>
+              <td><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#detail<?=$prd->id_prd?>"><i class="fas fa-search-plus"></i></button></td>
+              <td><a href="<?php echo base_url().'dashboard/hapus/'.$prd->id_prd ?>"><button type="submit" class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#hapus<?=$prd->id_prd?>"><i class="fas fa-trash"></i></button></td>
               <td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#update<?=$prd->id_prd?>"><i class="fas fa-edit"></i></a></button></td>
             </tr>
 
-<div class="modal fade" id="hapus" role="dialog">
+
+<div class="modal fade" id="detail<?=$prd->id_prd?>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        Detail Data
+      </div>
+        <div class="modal-body">
+          <label>ID : <?php echo $prd->id_prd; ?></label><br>
+          <label>Nama Produk : <?php echo $prd->nm_prd ?></label><br>
+          <label>Keterangan : <?php echo $prd->keterangan ?></label><br>
+          <label>Kategori : <?php echo $prd->ktg ?></label><br>
+          <label>Harga : <?php echo $prd->harga ?></label><br>
+          <label>Stok : <?php echo $prd->stok ?></label><br>
+          <label>Foto : <?php echo $prd->foto ?></label><br>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal">Batal</button>
+        </div>
+    </div>
+  </div>
+</div>
+        
+
+<div class="modal fade" id="hapus<?=$prd->id_prd?>" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -63,7 +77,7 @@
           <form method="post" action="<?php echo base_url('dashboard/update/'.$prd->id_prd); ?>">
           <div class="form-group">
             NAMA PRODUK
-            <input type="text" name="nm_prd" class="form-control" placeholder="Nama Produk">
+            <input type="text" name="nm_prd" class="form-control" placeholder="Nama Produk" value="<?=$prd->nm_prd?>">
           </div>
           <div class="form-group">
             KETERANGAN
@@ -71,7 +85,7 @@
           </div>
           <div class="form-group">
              KATEGORI
-             <select name="ktg" class="form-control">
+             <select name="ktg" class="form-control" value="<?=$prd->ktg?>">
               <option></option>
               <option value="olahraga" class="form-control">Olahraga</option>
               <option value="elektronik" class="form-control">Elektronik</option>
@@ -82,15 +96,15 @@
           </div>
           <div class="form-group">
              HARGA
-             <input type="text" name="harga" class="form-control" placeholder="Harga">
+             <input type="text" name="harga" class="form-control" placeholder="Harga" value="<?=$prd->harga?>">
           </div>
           <div class="form-group">
              STOK
-             <input type="text" name="stok" class="form-control" placeholder="stok Produk">
+             <input type="text" name="stok" class="form-control" placeholder="stok Produk" value="<?=$prd->stok?>">
           </div>
           <div class="form-group">
             FOTO
-            <input type="file" name="foto" class="form-control" placeholder="dalam bentuk jpg">
+            <input type="file" name="foto" class="form-control" placeholder="dalam bentuk jpg" value="<?=$prd->foto?>">
           </div>
           <div class="form-group">
            <br>

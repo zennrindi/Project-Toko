@@ -42,5 +42,9 @@ class Mdl_aksi extends CI_Model
 	{
 		return $this->db->get('produk');
 	}
+	public function propil()
+	{
+		return $this->db->get('cust');
+	}
 }
 ?>

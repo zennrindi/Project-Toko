@@ -25,7 +25,28 @@ class Barang extends CI_Model
  		$this->db->where($data_login);
  		return $this->db->get('user');
  	}
+ 	function detail($id_prd)
+ 	{
+ 		return $this->db->get('produk');
+ 	}
+ 	function detaill($kd_trx)
+ 	{
+ 		return $this->db->get('order');
+ 	}
+ 	function ubahh($kd_trx)
+	{
+		$this->db->where('kd_trx', $kd_trx);
+		return $this->db->get('order');
+	}
+	function edit($data, $where)
+	{
+		$this->db->update('order', $data, $where);
+	}
  	function hapus($tabel,$where)
+	{
+		$this->db->delete($tabel,$where);
+	}
+	function batal($tabel,$where)
 	{
 		$this->db->delete($tabel,$where);
 	}
