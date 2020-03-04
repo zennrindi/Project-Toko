@@ -46,5 +46,9 @@ class Mdl_aksi extends CI_Model
 	{
 		return $this->db->get('cust');
 	}
+	public function trx()
+	{
+		return $this->db->get('trx_dtl');
+	}
 }
 ?>

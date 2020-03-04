@@ -133,7 +133,7 @@
           
           <h5>Tambah Data</h5>
           
-          <form method="post" action="<?php echo base_url().'dashboard/simpan_tambah' ?>">
+          <form method="post" enctype="multipart/form-data" role="" action="<?php echo base_url().'dashboard/do_upload' ?>">
           <div class="form-group"> 
             ID
             <input type="hidden" name="id_prd" class="form-control"></span>
@@ -167,7 +167,7 @@
           </div>
           <div class="form-group">
             FOTO
-            <input type="text" name="foto" class="form-control" placeholder="dalam bentuk jpg">
+            <input type="file" name="foto" class="form-control" placeholder="dalam bentuk jpg">
           </div>
           <div class="form-group">
            <br>

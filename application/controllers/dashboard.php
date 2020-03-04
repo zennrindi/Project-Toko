@@ -98,7 +98,54 @@ class dashboard extends CI_Controller
 
 		$this->load->view('seller/reseller');
 	}
-	public function simpan_tambah()
+	public function do_upload()
+    {
+        $config['upload_path']          = './img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+        $config['encrypt_name']         = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('foto'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            // $this->data();
+            echo $error;
+        }
+        else
+        {
+            $data = $this->upload->data();
+            $nama_baru = $data["file_name"];
+            // $this->data();
+            // echo "yes";
+            $id = $this->input->post('id-prd');
+			$nama = $this->input->post('nm_prd');
+			$keterangan = $this->input->post('keterangan');
+			$kategori = $this->input->post('ktg');
+			$harga = $this->input->post('harga');
+			$stok = $this->input->post('stok');
+			$foto = $nama_baru;
+
+			$data = array
+				(
+					'id_prd' => $id, 
+					'nm_prd' => $nama,
+					'keterangan' => $keterangan,
+					'ktg' => $kategori,
+					'harga' => $harga,
+					'stok' => $stok,
+					'foto' => $foto
+				);
+
+		$this->barang->simpan_tambah($data, 'produk');
+		redirect(base_url('dashboard/data'));
+
+        }
+    }
+	/*public function simpan_tambah()
 	{
 		$id = $this->input->post('id-prd');
 		$nama = $this->input->post('nm_prd');
@@ -106,7 +153,7 @@ class dashboard extends CI_Controller
 		$kategori = $this->input->post('ktg');
 		$harga = $this->input->post('harga');
 		$stok = $this->input->post('stok');
-		$foto = $this->input->post('foto');
+		$foto = $nama_baru;
 
 		$data = array
 		(
@@ -129,7 +176,7 @@ class dashboard extends CI_Controller
 		$this->load->view('seller/sidebar');
 		$this->load->view('seller/details', $data);
 		$this->load->view('templates/footer');	
-	}
+	}*/
 	
 	public function hapus($id)
 	{

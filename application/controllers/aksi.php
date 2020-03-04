@@ -44,6 +44,12 @@ class Aksi extends CI_Controller
 		$data['ktg'] = $this->db->get('ktg')->result();
 		$this->load->view('detail',$data);
 	}
+	public function order()
+	{
+		$data['trx_dtl'] = $this->mdl_aksi->trx()->result();
+		$data['ktg'] = $this->db->get('ktg')->result();
+		$this->load->view('transaksi',$data);
+	}
 
 }
 ?>
