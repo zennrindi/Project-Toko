@@ -28,9 +28,13 @@ include 'templates/sidebar.php';
 				</div>
 			</div>
 			<div style="font-weight: bold" class="card-footer">
-				<a href="#" class="btn btn-md btn-primary">Masukkan Keranjang
+			<?php if (isset($_SESSION['username'])) { ?>
+				<a href="<?php echo base_url('aksi/order/') ?>" class="btn btn-md btn-primary">Masukkan Keranjang
 					<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 				</a>
+			<?php } else { ?>
+				<a href="<?php echo base_url('dashboard/login') ?>" class="btn btn-sm btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+      		<?php } ?>
 				<span class="badge badge-warning">Jumlah
 					<input type="number" name="stok" class="input-sm">
 				</span>

@@ -46,10 +46,24 @@ class Aksi extends CI_Controller
 	}
 	public function order()
 	{
-		$data['trx_dtl'] = $this->mdl_aksi->trx()->result();
+		// id_prd, id_seller, session customer
+		// simpan ke tabel order
+		// simpan ke tabel order_dtl
+
+		$id_prd2 = $this->uri->segment(3);
+		$prod2 = $this->db->get_where('produk',array('id_prd' => $id_prd2))->row();
+		$data['foto'] = $prod2->foto;
+		$data['nm_prd'] = $prod2->nm_prd;
+		$data['keterangan'] = $prod2->keterangan;
+		$data['harga'] = $prod2->harga;
+
+		// ambil dari trx_dtl where id_prd = $id_prd2
+		// $data['jumlah'] = $prod2->jumlah;
+
 		$data['ktg'] = $this->db->get('ktg')->result();
 		$this->load->view('transaksi',$data);
 	}
+	
 
 }
 ?>

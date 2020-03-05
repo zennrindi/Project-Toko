@@ -50,5 +50,6 @@ class Mdl_aksi extends CI_Model
 	{
 		return $this->db->get('trx_dtl');
 	}
+	
 }
 ?>

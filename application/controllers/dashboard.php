@@ -128,6 +128,7 @@ class dashboard extends CI_Controller
 			$harga = $this->input->post('harga');
 			$stok = $this->input->post('stok');
 			$foto = $nama_baru;
+			// $id_seller = dari session seller yang login
 
 			$data = array
 				(

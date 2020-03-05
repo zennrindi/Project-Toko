@@ -23,7 +23,7 @@
               <td><?php echo $prd->id_prd ?></td>
               <td><?php echo $prd->nm_prd ?></td>
               <td><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#detail<?=$prd->id_prd?>"><i class="fas fa-search-plus"></i></button></td>
-              <td><a href="<?php echo base_url().'dashboard/hapus/'.$prd->id_prd ?>"><button type="submit" class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#hapus<?=$prd->id_prd?>"><i class="fas fa-trash"></i></button></td>
+              <td><a href="<?php echo base_url().'dashboard/hapus/'.$prd->id_prd ?>"><button  class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#hapus<?=$prd->id_prd?>"><i class="fas fa-trash"></i></button></td>
               <td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#update<?=$prd->id_prd?>"><i class="fas fa-edit"></i></a></button></td>
             </tr>
 
@@ -42,9 +42,6 @@
           <label>Harga : <?php echo $prd->harga ?></label><br>
           <label>Stok : <?php echo $prd->stok ?></label><br>
           <label>Foto : <?php echo $prd->foto ?></label><br>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" data-dismiss="modal">Batal</button>
         </div>
     </div>
   </div>

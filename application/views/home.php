@@ -13,11 +13,16 @@ include 'templates/sidebar.php';
       <div class="card-title" style="font-weight: bold"><span style="color: black"><?php echo $key->nm_prd; ?></span></div>
       <div style="font-weight: bold">
       <span style="color: red">Rp <?php echo number_format($key->harga,0,",","."); ?></span></div>
-      <a href="<?php echo base_url('aksi/order/'.$key->id_prd) ?>" class="btn btn-sm btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+      <?php if (isset($_SESSION['username'])) { ?>
+          <a href="<?php echo base_url('aksi/order/'.$key->id_prd) ?>" class="btn btn-sm btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+      <?php } else { ?>
+          <a href="<?php echo base_url('dashboard/login') ?>" class="btn btn-sm btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+      <?php } ?>
+
       <a href="<?php echo base_url('aksi/det/'.$key->id_prd) ?>" class=" btn btn-sm btn btn-danger"><i class="fa fa-search-plus"></i></a>
     </div> 
   </div>
       <?php endforeach; ?> 
-  </div>
-</div>
+
+
 <?php include 'templates/footer.php'; ?>
